@@ -392,3 +392,91 @@ Despite being powerful, policy gradients suffer from:
 
 ---
 
+<a name="4-advanced-methods"></a>
+# 🧩 4. Advanced Methods
+
+In this section, we compare three powerful reinforcement learning algorithms — **SAC**, **DDPG**, and **PPO** — in terms of performance, exploration behavior, sample efficiency, and stability.
+
+
+## 🧾 Contents
+
+- 🏃‍♂️ [Performance Overview](#perf_04)
+- 🔍 [Exploration Strategies](#exploration_04)
+- ⚙️ [Sample Efficiency vs Training Stability](#sample-stability_04)
+- 🔧 [Hyperparameter Sensitivity](#tuning_04)
+- 🔗 [References](#references_04)
+
+<a name="perf_04"></a>
+## 🏃‍♂️ Performance Overview?
+
+<div align="center">
+
+| Algorithm | Training Stability | Convergence Speed | Final Reward |
+|-----------|--------------------|-------------------|--------------|
+| PPO       | Very High          | Slow              | Medium       |
+| DDPG      | Low                | Fast (unstable)   | Quite-High   |
+| SAC       | High               | Fast              | Highest      |
+
+</div>
+
+<p align="center">
+  <img src="./04_Advanced Methods/assets/ppo.png" width="250"/>
+  <img src="./04_Advanced Methods/assets/ddpg.png" width="250"/>
+  <img src="./04_Advanced Methods/assets/sac.png" width="250"/>
+  <br/>
+  <em>Average Reward of PPO, DDPG, and SAC over time.</em>
+</p>
+
+<p align="center">
+  <img src="./04_Advanced Methods/assets/ppo.gif" width="150"/>
+  <img src="./04_Advanced Methods/assets/ddpg.gif" width="150"/>
+  <img src="./04_Advanced Methods/assets/sac.gif" width="150"/>
+  <br/>
+  <em>Performance of PPO, DDPG, and SAC.</em>
+</p>
+
+> ✅ **SAC dominates** thanks to stable learning and entropy-regularized exploration.
+
+<a name="exploration_04"></a>
+## 🔍 Exploration Strategies
+
+<div align="center">
+
+| Algorithm | Policy Type  | Exploration Method        | Effectiveness |
+|----------|---------------|---------------------------|---------------|
+| PPO      | Stochastic    | Entropy Bonus             | Moderate      |
+| DDPG     | Deterministic | Gaussian / OU Noise       | Unstable      |
+| SAC      | Stochastic    | Entropy + Dynamic Alpha   | High          |
+
+</div>
+
+> 🎯 SAC automatically balances randomness and performance with temperature tuning.
+
+
+<a name="sample-stability_04"></a>
+## ⚙️ Sample Efficiency vs Training Stability
+
+<div align="center">
+  
+| Algorithm | Sample Efficiency        | Training Stability           |
+|-----------|--------------------------|------------------------------|
+| PPO       | ❌ Low (on-policy only)   | ✅ High (clipping updates)   |
+| DDPG      | ✅ High (off-policy)      | ❌ Low (sensitive to noise)  |
+| SAC       | ✅ High (off-policy)      | ✅ High (entropy + twin Qs)  |
+
+</div>
+
+
+<a name="tuning_04"></a>
+## 🔧 Hyperparameter Sensitivity
+
+<div align="center">
+  
+| Algorithm | Tuning Difficulty | Key Hyperparameters                  |
+|-----------|-------------------|--------------------------------------|
+| PPO       | 🟢 Easy            | Clipping ε, GAE λ, learning rate     |
+| DDPG      | 🔴 Hard            | Noise scale, replay buffer, LR       |
+| SAC       | 🟡 Moderate        | α (entropy), buffer, learning rate   |
+
+</div>
+
