@@ -621,4 +621,4 @@ I used the differentiable MPC solver from [mpc.pytorch](https://github.com/locus
 - [📄 MPC PyTorch](https://github.com/locuslab/mpc.pytorch)
 - [📄 OptNet (MPC Theory)](https://arxiv.org/abs/1703.00443)
 - [📄 Differentiable MPC](https://arxiv.org/abs/1810.13400)
-"""
+
