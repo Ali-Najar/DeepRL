@@ -41,6 +41,7 @@ In this section, we introduce the foundational principles of reinforcement learn
 - 📹 [Media](#media)
 - 🔗 [References](#references)
 
+<a name="overview"></a>
 ## 🌄 Overview
 
 This part of the project establishes the core concepts of Reinforcement Learning (RL) and evaluates two well-known environments—FrozenLake-v1 and CartPole-v1—using both value-based (DQN) and policy-based (PPO) methods. In addition, a custom environment based on the Chrome-Dino game is implemented using Gymnasium and Pygame to showcase the application of RL in interactive settings.
@@ -124,3 +125,24 @@ Below is the Chrome-Dino test video.
   <br/>
   <em>PPO agent running in the custom Chrome-Dino environment.</em>
 </p>
+
+
+## 📘 1. eeeee to RL
+
+In this section, we introduce the foundational principles of reinforcement learning through experiments on standard environments and a custom-designed Gym environment. The work includes detailed analyses of hyperparameters, learning curves, and performance metrics.
+
+
+## 🧾 Contents
+
+- 🌄 [Overview](#overview)
+- 🧪 [Experiments on Predefined Environments](#experiments-on-predefined-environments)
+  - ❄️ [FrozenLake-v1](#frozenlake-v1)
+  - 🎡 [CartPole-v1](#cartpole-v1)
+  - 📊 [DQN vs PPO: Quick Comparison](#dqn-vs-ppo-comparison)
+- 🦖 [Custom Environment: Chrome-Dino](#custom-environment-chrome-dino)
+- 📹 [Media](#media)
+- 🔗 [References](#references)
+
+
+<a name="overview"></a>
+## 🌄 Overview
