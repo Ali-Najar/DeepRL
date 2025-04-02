@@ -32,22 +32,27 @@ In this section, we introduce the foundational principles of reinforcement learn
 
 ## 🧾 Contents
 
-- 🌄 [Overview](#overview)
-- 🧪 [Experiments on Predefined Environments](#experiments-on-predefined-environments)
-  - ❄️ [FrozenLake-v1](#frozenlake-v1)
-  - 🎡 [CartPole-v1](#cartpole-v1)
-  - 📊 [DQN vs PPO: Quick Comparison](#dqn-vs-ppo-comparison)
-- 🦖 [Custom Environment: Chrome-Dino](#custom-environment-chrome-dino)
-- 📹 [Media](#media)
-- 🔗 [References](#references)
+- 🌄 [Overview](#overview_01)
+- 🧪 [Experiments on Predefined Environments](#experiments-on-predefined-environments_01)
+  - ❄️ [FrozenLake-v1](#frozenlake-v1_01)
+  - 🎡 [CartPole-v1](#cartpole-v1_01)
+  - 📊 [DQN vs PPO: Quick Comparison](#dqn-vs-ppo-comparison_01)
+- 🦖 [Custom Environment: Chrome-Dino](#custom-environment-chrome-dino_01)
+- 📹 [Media](#media_01)
+- 🔗 [References](#references_01)
 
-<a name="overview"></a>
+<a name="overview_01"></a>
 ## 🌄 Overview
 
 This part of the project establishes the core concepts of Reinforcement Learning (RL) and evaluates two well-known environments—FrozenLake-v1 and CartPole-v1—using both value-based (DQN) and policy-based (PPO) methods. In addition, a custom environment based on the Chrome-Dino game is implemented using Gymnasium and Pygame to showcase the application of RL in interactive settings.
 
+<a name="experiments-on-predefined-environments_01"></a>
 ## 🧪 Experiments on Predefined Environments
 
+<a name="overview_01"></a>
+## 🌄 Overview
+
+<a name="frozenlake-v1_01"></a>
 ### ❄️ FrozenLake-v1
 
 In the FrozenLake-v1 environment, multiple models were trained using various hyperparameter settings. Key aspects of this experiment include:
@@ -60,6 +65,7 @@ In the FrozenLake-v1 environment, multiple models were trained using various hyp
   - Learning curves were evaluated in terms of rewards per episode and mean episode lengths.
   - The results indicate that PPO generally exhibits smoother convergence, whereas DQN shows greater fluctuation and slower convergence.
 
+<a name="cartpole-v1_01"></a>
 ### 🎡 CartPole-v1
 
 For the CartPole-v1 environment, the experiments focused on the following:
@@ -70,7 +76,9 @@ For the CartPole-v1 environment, the experiments focused on the following:
 
 - **Observations:**  
   - The continuous state dynamics of CartPole posed additional challenges, particularly for the DQN approach.
- 
+
+
+<a name="dqn-vs-ppo-comparison_01"></a>
 ### 📊 DQN vs PPO: Quick Comparison
 
 <div align="center">
@@ -96,6 +104,8 @@ For the CartPole-v1 environment, the experiments focused on the following:
   <em>Comparison of DQN (🟣) and PPO (⚫) on CartPole-v1.</em>
 </p>
 
+
+<a name="custom-environment-chrome-dino_01"></a>
 ## 🦖 Custom Environment: Chrome-Dino
 
 A custom Gymnasium environment was developed to simulate the Chrome-Dino game using Pygame. This environment is defined by:
@@ -116,6 +126,8 @@ A custom Gymnasium environment was developed to simulate the Chrome-Dino game us
 
 The agent was trained using PPO with an MLP policy over 2,000,000 timesteps. This setup demonstrates how reinforcement learning techniques can be applied to interactive environments with dynamic visual feedback.
 
+
+<a name="media_01"></a>
 ## 📹 Media
 
 Below is the Chrome-Dino test video.
@@ -127,22 +139,6 @@ Below is the Chrome-Dino test video.
 </p>
 
 
-## 📘 1. eeeee to RL
-
-In this section, we introduce the foundational principles of reinforcement learning through experiments on standard environments and a custom-designed Gym environment. The work includes detailed analyses of hyperparameters, learning curves, and performance metrics.
-
-
-## 🧾 Contents
-
-- 🌄 [Overview](#overview)
-- 🧪 [Experiments on Predefined Environments](#experiments-on-predefined-environments)
-  - ❄️ [FrozenLake-v1](#frozenlake-v1)
-  - 🎡 [CartPole-v1](#cartpole-v1)
-  - 📊 [DQN vs PPO: Quick Comparison](#dqn-vs-ppo-comparison)
-- 🦖 [Custom Environment: Chrome-Dino](#custom-environment-chrome-dino)
-- 📹 [Media](#media)
-- 🔗 [References](#references)
-
-
-<a name="overview"></a>
-## 🌄 Overview
+<a name="references_01"></a>
+## 🔗 References
+- [📄 Chrome-Dino Environment (by MaxRohowsky)](https://github.com/MaxRohowsky/chrome-dinosaur)
