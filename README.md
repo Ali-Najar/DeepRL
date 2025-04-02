@@ -49,9 +49,6 @@ This part of the project establishes the core concepts of Reinforcement Learning
 <a name="experiments-on-predefined-environments_01"></a>
 ## 🧪 Experiments on Predefined Environments
 
-<a name="overview_01"></a>
-## 🌄 Overview
-
 <a name="frozenlake-v1_01"></a>
 ### ❄️ FrozenLake-v1
 
