@@ -29,35 +29,36 @@ Each part focuses on a specific area, building from foundational concepts to mor
 In this section, we introduce the foundational principles of reinforcement learning through experiments on standard environments and a custom-designed Gym environment. The work includes detailed analyses of hyperparameters, learning curves, and performance metrics.
 
 
-## Contents
+## 🧾 Contents
 
 - 🌄 [Overview](#overview)
 - 🧪 [Experiments on Predefined Environments](#experiments-on-predefined-environments)
   - ❄️ [FrozenLake-v1](#frozenlake-v1)
   - 🎡 [CartPole-v1](#cartpole-v1)
+  - 📊 [DQN vs PPO: Quick Comparison](#dqn-vs-ppo-comparison)
 - 🦖 [Custom Environment: Chrome-Dino](#custom-environment-chrome-dino)
 - 📹 [Media](#media)
 - 🔗 [References](#references)
 
-## Overview
+## 🌄 Overview
 
 This part of the project establishes the core concepts of Reinforcement Learning (RL) and evaluates two well-known environments—FrozenLake-v1 and CartPole-v1—using both value-based (DQN) and policy-based (PPO) methods. In addition, a custom environment based on the Chrome-Dino game is implemented using Gymnasium and Pygame to showcase the application of RL in interactive settings.
 
-## Experiments on Predefined Environments
+## 🧪 Experiments on Predefined Environments
 
-### FrozenLake-v1
+### ❄️ FrozenLake-v1
 
 In the FrozenLake-v1 environment, multiple models were trained using various hyperparameter settings. Key aspects of this experiment include:
 
 - **Model Variants:**  
-  - PPO and DQN were tested with different learning rates (e.g., 0.0001, 0.01), discount factors (γ = 0.99, 0.7), varying timesteps, and replay buffer sizes.
+  - PPO and DQN were tested with different learning rates, discount factors, varying timesteps, and replay buffer sizes.
   - Additional experiments included the use of reward wrappers to analyze the impact of step costs.
 
 - **Performance Analysis:**  
   - Learning curves were evaluated in terms of rewards per episode and mean episode lengths.
   - The results indicate that PPO generally exhibits smoother convergence, whereas DQN shows greater fluctuation and slower convergence.
 
-### CartPole-v1
+### 🎡 CartPole-v1
 
 For the CartPole-v1 environment, the experiments focused on the following:
 
@@ -67,10 +68,11 @@ For the CartPole-v1 environment, the experiments focused on the following:
 
 - **Observations:**  
   - The continuous state dynamics of CartPole posed additional challenges, particularly for the DQN approach.
-  - The comparative analysis highlights that while both algorithms eventually achieve high performance, PPO demonstrates a more robust learning process.
  
 ### 📊 DQN vs PPO: Quick Comparison
 
+<div align="center">
+  
 | Environment     | Algorithm | Convergence Speed | Stability | Final Performance |
 |----------------|-----------|-------------------|-----------|-------------------|
 | FrozenLake-v1   | DQN       | Slow              | Low       | Medium            |
@@ -78,14 +80,21 @@ For the CartPole-v1 environment, the experiments focused on the following:
 | CartPole-v1     | DQN       | Medium            | Moderate  | High              |
 |                 | PPO       | Fast              | High      | High              |
 
+</div>
+
 <p align="center">
-  <img src="./image2.png" alt="DQN vs PPO on FrozenLake-v1" width="600"/>
+  <img src="./01_Introduction to RL/frozen-lake.png" alt="DQN vs PPO on FrozenLake-v1" width="600"/>
   <br/>
-  <em>Figure: Comparison of DQN (gray) and PPO (purple) on FrozenLake-v1. PPO shows faster convergence and more stable performance.</em>
+  <em>Comparison of DQN (🟣) and PPO (⚫) on FrozenLake-v1.</em>
 </p>
 
+<p align="center">
+  <img src="./01_Introduction to RL/cartpole.png" alt="DQN vs PPO on CartPole-v1" width="300"/>
+  <br/>
+  <em>Comparison of DQN (🟣) and PPO (⚫) on CartPole-v1.</em>
+</p>
 
-## Custom Environment: Chrome-Dino
+## 🦖 Custom Environment: Chrome-Dino
 
 A custom Gymnasium environment was developed to simulate the Chrome-Dino game using Pygame. This environment is defined by:
 
@@ -105,10 +114,12 @@ A custom Gymnasium environment was developed to simulate the Chrome-Dino game us
 
 The agent was trained using PPO with an MLP policy over 2,000,000 timesteps. This setup demonstrates how reinforcement learning techniques can be applied to interactive environments with dynamic visual feedback.
 
----
+## 📹 Media
 
-## Media
+Below is the Chrome-Dino test video.
 
-Below is the output GIF generated from the Chrome-Dino test video (`dino_test.mp4`). This GIF captures a 15-second segment (from 55 seconds to 1:10) sped up by a factor of 2:
-
-![Chrome Dino Output](output.gif)
+<p align="center">
+  <img src="01_Introduction to RL/output.gif" alt="Chrome Dino PPO Agent Demo" width="300"/>
+  <br/>
+  <em>PPO agent running in the custom Chrome-Dino environment.</em>
+</p>
