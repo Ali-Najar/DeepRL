@@ -135,7 +135,133 @@ Below is the Chrome-Dino test video.
   <em>PPO agent running in the custom Chrome-Dino environment.</em>
 </p>
 
-
 <a name="references_01"></a>
 ## 🔗 References
 - [📄 Chrome-Dino Environment (by MaxRohowsky)](https://github.com/MaxRohowsky/chrome-dinosaur)
+
+---
+
+<a name="2-value-based-methods"></a>
+## 📈 2. Value-Based Methods
+
+This section explores value-based reinforcement learning, including epsilon-greedy strategies, n-step methods, and deep Q-learning approaches (DQN vs. DDQN). Experiments focus on learning dynamics, stability, and convergence.
+
+## 🧾 Contents
+
+- 🎲 [Epsilon-Greedy Exploration](#epsilon-greedy_02)
+- 🔁 [N-step SARSA and Q-Learning](#n-step_02)
+- 🧠 [DQN vs DDQN](#dqn-vs-ddqn_02)
+- 🔗 [References](#references_02)
+
+<a name="epsilon-greedy_02"></a>
+## 🎲 Epsilon-Greedy Exploration
+
+We analyzed different fixed and decaying $\varepsilon$-values in a CliffWalking environment and evaluated their effect on regret, learning curves, and policies.
+
+### 📊 Regret Behavior (Fixed Epsilon)
+
+<div align="center">
+
+| Epsilon | Behavior |
+|--------|----------|
+| 0.1 | Fast convergence, minimal long-term regret |
+| 0.5 | Occasional jumps from instability |
+| 0.9 | Purely exploratory, linear regret growth |
+
+</div>
+
+<p align="center">
+  <img src="./02_Value-Based Methods/assets/regret0.1.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/regret0.5.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/regret0.9.png" width="300"/>
+  <br/>
+  <em>From left to right, regret curves for ε = 0.1, 0.5, and 0.9 respectively.</em>
+</p>
+
+
+### 📊 Epsilon Decay Strategies
+
+We tested fast, medium, and slow epsilon decay and analyzed the rewards and policies near the cliff.
+
+<p align="center">
+  <img src="./02_Value-Based Methods/assets/decay.png" width="500"/>
+  <br/>
+  <em>Comparison of different decay rates.</em>
+</p>
+
+<p align="center">
+  <img src="./02_Value-Based Methods/assets/fast.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/medium.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/slow.png" width="300"/>
+  <br/>
+  <em>From left to right, policies for fast, medium and slow decay respectively.</em>
+</p>
+
+>  **Observation:** Fast decay leads to quicker convergence but riskier policies. Slower decay enforces caution near the cliff.
+
+<a name="n-step_02"></a>
+## 🔁 N-step SARSA and Q-Learning
+
+We compared performance using different values of n (1, 2, 5) for both SARSA and Q-learning.
+
+### 🔄 Q-learning
+
+<p align="center">
+  <img src="./02_Value-Based Methods/assets/q-n1.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/q-n2.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/q-n5.png" width="300"/>
+  <br/>
+  <em>Q-Learning with n = 1, 2, 5.</em>
+</p>
+
+### 🔄 SARSA
+
+<p align="center">
+  <img src="./02_Value-Based Methods/assets/sarsa-n1.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/sarsa-n2.png" width="300"/>
+  <img src="./02_Value-Based Methods/assets/sarsa-n5.png" width="300"/>
+  <br/>
+  <em>SARSA with n = 1, 2, 5.</em>
+</p>
+
+
+<a name="dqn-vs-ddqn_02"></a>
+## 🧠 DQN vs DDQN
+
+We implemented both DQN and DDQN on CartPole and compared their stability, value estimates, and learning curves.
+
+### 📈 Performance Comparison
+
+<p align="center">
+  <img src="./02_Value-Based Methods/assets/ddqn-dqn.png" width="400"/>
+  <br/>
+  <em>DDQN shows better stability and higher average reward per episode.</em>
+</p>
+
+### 📈 Value Estimates
+
+<p align="center">
+  <img src="./02_Value-Based Methods/assets/ddqn-val.png" width="350"/>
+  <img src="./02_Value-Based Methods/assets/dqn-val.png" width="350"/>
+  <br/>
+  <em>DQN overestimates value consistently compared to DDQN. (Left plot DDQN, right plot DQN)</em>
+</p>
+
+
+### 🔧 Improvements Explored
+
+- 🧠 **Maxmin Q-learning**: Uses ensembles to mitigate overestimation bias.
+- ⚖️ **Prioritized Experience Replay (PER)**: Samples transitions based on TD-error for improved learning efficiency.
+
+
+<a name="references_02"></a>
+## 🔗 References
+
+- [📄 Sutton & Barto – Reinforcement Learning: An Introduction (2nd Ed)](http://incompleteideas.net/book/the-book-2nd.html)
+- [📄 Grokking Deep Reinforcement Learning](https://www.manning.com/books/grokking-deep-reinforcement-learning)
+- [📄 Deep Reinforcement Learning with Double Q-learning](https://arxiv.org/abs/1509.06461)
+- [📄 Prioritized Experience Replay](https://arxiv.org/abs/1511.05952)
+- [📄 Maxmin Q-learning](https://arxiv.org/abs/2002.06487)
+
+---
+
