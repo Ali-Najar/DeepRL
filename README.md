@@ -480,3 +480,12 @@ In this section, we compare three powerful reinforcement learning algorithms —
 
 </div>
 
+<a name="references_04"></a>
+## 🔗 References
+
+- [📄 Proximal Policy Optimization (PPO)](https://arxiv.org/abs/1707.06347)
+- [📄 Deep Deterministic Policy Gradient (DDPG)](https://arxiv.org/abs/1509.02971)
+- [📄 Soft Actor-Critic (SAC)](https://arxiv.org/abs/1801.01290)
+
+---
+
