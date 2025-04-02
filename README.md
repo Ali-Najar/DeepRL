@@ -7,7 +7,7 @@ Each part focuses on a specific area, building from foundational concepts to mor
 
 ## 📚 Table of Contents
 
-1. 📘 [Introduction to RL](#1-introduction-to-rl)
+1.  [📘 Introduction to RL](#1-introduction-to-rl)
 2. 📈 [Value-Based Methods](#2-value-based-methods)
 3. 🎯 [Policy-Based Methods](#3-policy-based-methods)
 4. 🧩 [Advanced Methods](#4-advanced-methods)
