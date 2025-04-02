@@ -497,7 +497,7 @@ This part explores model-based approaches to reinforcement learning (MBRL), incl
 
 - 🌲 [Monte Carlo Tree Search (MuZero)](#mcts_05)
 - 📚 [Dyna-Q and Prioritized Sweeping](#dyna-q_05)
-- 🔧 [Model Predictive Control (MPC)](#mpc_05)
+- 🕹️ [Model Predictive Control (MPC)](#mpc_05)
 - 🔗 [References](#references_05)
 
 
@@ -599,3 +599,26 @@ We experimented with multiple variations of the Dyna-Q algorithm to explore how 
 > 🌪️ Even with added randomness, reward shaping helps the agent generalize and progress toward the goal. Learning is noisier but more effective than vanilla Dyna-Q under stochastic transitions.
 
 
+<a name="mpc_05"></a>
+## 🕹️ Model Predictive Control (MPC)
+
+I used the differentiable MPC solver from [mpc.pytorch](https://github.com/locuslab/mpc.pytorch) to control a Pendulum-v1 environment.
+
+<p align="center">
+  <img src="./05_Model-Based Methods/assets/mpc.png" width="500"/>
+  <br/>
+  <em>MPC gradually stabilizes the pendulum by improving control precision.</em>
+</p>
+
+
+<a name="references_05"></a>
+## 🔗 References
+
+- [📄 Monte Carlo Tree Search](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search)
+- [📄 MuZero Paper](https://arxiv.org/abs/1911.08265)
+- [📄 Dyna-Q Chapter – Sutton & Barto](http://incompleteideas.net/book/ebook/node65.html)
+- [📄 Reward Shaping in RL](https://www.alexirpan.com/2018/02/14/rl-hard.html#reward-function-design-is-difficult)
+- [📄 MPC PyTorch](https://github.com/locuslab/mpc.pytorch)
+- [📄 OptNet (MPC Theory)](https://arxiv.org/abs/1703.00443)
+- [📄 Differentiable MPC](https://arxiv.org/abs/1810.13400)
+"""
