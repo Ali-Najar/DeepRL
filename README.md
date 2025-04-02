@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/cover.jpg" alt="DeepRL Logo" width="500"/>
+</p>
+
 # 🧠 Deep Reinforcement Learning
 
 This repository contains a series of tasks and Jupyter notebooks that guide you through the fundamentals and advanced topics of Deep Reinforcement Learning (DRL).  
