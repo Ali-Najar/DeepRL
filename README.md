@@ -487,5 +487,115 @@ In this section, we compare three powerful reinforcement learning algorithms —
 - [📄 Deep Deterministic Policy Gradient (DDPG)](https://arxiv.org/abs/1509.02971)
 - [📄 Soft Actor-Critic (SAC)](https://arxiv.org/abs/1801.01290)
 
----
+
+<a name="5-model-based-methods"></a>
+# 🧠 5. Model-Based Methods
+
+This part explores model-based approaches to reinforcement learning (MBRL), including MCTS (MuZero-style), Dyna-Q, and MPC. These methods integrate planning and model learning to accelerate and stabilize training.
+
+## 🧾 Contents
+
+- 🌲 [Monte Carlo Tree Search (MuZero)](#mcts_05)
+- 📚 [Dyna-Q and Prioritized Sweeping](#dyna-q_05)
+- 🔧 [Model Predictive Control (MPC)](#mpc_05)
+- 🔗 [References](#references_05)
+
+
+<a name="mcts_05"></a>
+## 🌲 Monte Carlo Tree Search (MuZero)
+
+We implemented a MuZero-inspired agent that combines model learning and planning via MCTS. The model includes:
+
+- **Representation Network** to encode observations.
+- **Dynamics Model** to simulate transitions.
+- **Prediction Head** for value and policy estimation.
+
+During training, trajectories are stored in a replay buffer. MCTS is used at each decision point to simulate future trajectories and guide action selection.
+
+### 📈 Results
+
+<p align="center">
+  <img src="./05_Model-Based Methods/assets/mcts.png" width="600"/>
+  <br/>
+  <em>MCTS training performance for naive strategy and MuZero.</em>
+</p>
+
+> ✅ MuZero significantly outperforms naive search by leveraging learned dynamics and planning via MCTS. Performance improves consistently as model accuracy increases.
+
+
+<a name="dyna-q_05"></a>
+## 📚 Dyna-Q and Prioritized Sweeping
+
+We applied Dyna-Q to the 8×8 Frozen Lake environment. The agent learned using both real and simulated experiences. Key experiments included:
+
+- Varying planning steps.
+- Reward shaping.
+- Adaptive $\varepsilon$ and planning schedules.
+- Prioritized Sweeping.
+
+### 🔬 Insights
+
+- More planning steps accelerate learning **after** reward discovery.
+- Reward shaping improves feedback propagation.
+- Prioritized Sweeping boosts sample efficiency via targeted updates.
+
+### 📈 Results
+
+We experimented with multiple variations of the Dyna-Q algorithm to explore how different improvements affect performance in the Frozen Lake environment.
+
+#### 📉 Base Case (Vanilla Dyna-Q)
+
+<p align="center">
+  <img src="./05_Model-Based Methods/assets/dyna-base.png" width="500"/>
+  <br/>
+  <em>Vanilla Dyna-Q (no shaping or enhancements).</em>
+</p>
+
+> ⚠️ The agent fails to reach the goal due to sparse rewards and lack of directed exploration. Q-values remain uniformly low, and planning reinforces uninformative transitions.
+
+#### 🎯 Enhanced Case: Softmax Policy + Baseline + Adaptive Planning
+
+<p align="center">
+  <img src="./05_Model-Based Methods/assets/dyna-enhance.png" width="500"/>
+  <br/>
+  <em>Dyna-Q with softmax policy, value baseline, and adaptive planning steps.</em>
+</p>
+
+> ✅ These enhancements significantly improve learning:
+> - The baseline boosts Q-values and breaks early stagnation.
+> - Softmax encourages guided exploration instead of random ε-greedy noise.
+> - Adaptive planning increases efficiency post-reward discovery.
+> 💡 Dyna-Q greatly benefits from planning, especially once rewards are observed. Reward shaping and softmax policies further enhance convergence. Prioritized Sweeping leads to faster reward propagation.
+
+#### 🧠 Reward Shaping
+
+<p align="center">
+  <img src="./05_Model-Based Methods/assets/reward_shaping.png" width="500"/>
+  <img src="./05_Model-Based Methods/assets/reward_shaping0.png" width="500"/>
+  <br/>
+  <em>Dyna-Q with custom distance-based reward shaping. (with ε=0 and ε = 0,1)</em>
+</p>
+
+> 📈 Reward shaping provides intermediate feedback, guiding the agent toward the goal. Q-values reflect a gradient along optimal paths, leading to much faster and more stable convergence.
+
+#### ⚡ Prioritized Sweeping
+
+<p align="center">
+  <img src="./05_Model-Based Methods/assets/p_sweeping.png" width="500"/>
+  <br/>
+  <em>Planning updates are prioritized based on temporal-difference error.</em>
+</p>
+
+> 🚀 Prioritized sweeping accelerates propagation of new information. After encountering a reward, related states are updated quickly, leading to faster convergence than uniform planning.
+
+#### ❄️ Extra: Slippery Environment + Reward Shaping
+
+<p align="center">
+  <img src="./05_Model-Based Methods/assets/stochastic.png" width="500"/>
+  <br/>
+  <em>Dyna-Q with reward shaping in the stochastic (slippery) environment.</em>
+</p>
+
+> 🌪️ Even with added randomness, reward shaping helps the agent generalize and progress toward the goal. Learning is noisier but more effective than vanilla Dyna-Q under stochastic transitions.
+
 
