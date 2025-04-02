@@ -7,7 +7,7 @@ Each part focuses on a specific area, building from foundational concepts to mor
 
 ## 📚 Table of Contents
 
-1.  [📘 Introduction to RL](#1-introduction-to-rl)
+1. 📘 [Introduction to RL](#1-introduction-to-rl)
 2. 📈 [Value-Based Methods](#2-value-based-methods)
 3. 🎯 [Policy-Based Methods](#3-policy-based-methods)
 4. 🧩 [Advanced Methods](#4-advanced-methods)
@@ -24,6 +24,7 @@ Each part focuses on a specific area, building from foundational concepts to mor
 
 ---
 
+<a name="1-introduction-to-rl"></a>
 ## 📘 1. Introduction to RL
 
 In this section, we introduce the foundational principles of reinforcement learning through experiments on standard environments and a custom-designed Gym environment. The work includes detailed analyses of hyperparameters, learning curves, and performance metrics.
